@@ -1,7 +1,7 @@
 min_os_version: 1.3.8
 name: 老王订阅管理系统
 package: community.lazycat.app.laowang-subscription
-version: 0.1.0
+version: 1.2.0
 description: "一款高颜值的私有化订阅管理系统。"
 homepage: https://github.com/tony-wang1990/laowang-subscription
 author: tony-wang1990
@@ -18,18 +18,15 @@ application:
 services:
   laowang-subscription:
     # ghcr.io/tony-wang1990/laowang-subscription:main
-    image: registry.lazycat.cloud/czyt/tony-wang1990/laowang-subscription:0e07c3494c444b0b
+    image: registry.lazycat.cloud/czyt/tony-wang1990/laowang-subscription:0481b30803cfaa16
     container_name: laowang-subscription
     binds:
       - /lzcapp/var/database:/app/database
     environment:
       - NODE_ENV=production
+      - TZ=Asia/Shanghai
       - JWT_SECRET={{ stable_secret "jwt#secret" }}
       - HASH_SECRET={{ stable_secret "hash#secret" }}
-    setup_script: |
-      if [ ! -f /app/database/subscription.db ];then
-       cp /lzcapp/pkg/content/subscription.db /app/database/subscription.db
-      fi
 
 unsupported_platforms:
   - ios
