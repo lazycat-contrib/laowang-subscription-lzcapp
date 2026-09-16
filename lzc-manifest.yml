@@ -6,11 +6,10 @@ application:
   upstreams:
     - location: /
       backend: http://laowang-subscription:8080/
-
 services:
   laowang-subscription:
-    # upstream: ghcr.io/tony-wang1990/laowang-subscription:main
-    image: ghcr.io/tony-wang1990/laowang-subscription:main
+    # upstream: ghcr.io/tony-wang1990/laowang-subscription:0f6daee@sha256:c843200dfe330f575c9195889d666f752397eccdd95c2d947945489d080dab8b
+    image: registry.lazycat.cloud/czyt/tony-wang1990/laowang-subscription:6c56c2c2ba491f5b
     binds:
       - /lzcapp/var/database:/app/database
     environment:
