@@ -1,0 +1,20 @@
+application:
+  subdomain: laowang-subscription
+  background_task: true
+  public_path:
+    - /
+  upstreams:
+    - location: /
+      backend: http://laowang-subscription:8080/
+
+services:
+  laowang-subscription:
+    # upstream: ghcr.io/tony-wang1990/laowang-subscription:main
+    image: ghcr.io/tony-wang1990/laowang-subscription:main
+    binds:
+      - /lzcapp/var/database:/app/database
+    environment:
+      - NODE_ENV=production
+      - TZ=Asia/Shanghai
+      - JWT_SECRET={{ stable_secret "jwt#secret" }}
+      - HASH_SECRET={{ stable_secret "hash#secret" }}
