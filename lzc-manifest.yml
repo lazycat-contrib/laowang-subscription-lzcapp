@@ -8,8 +8,8 @@ application:
       backend: http://laowang-subscription:8080/
 services:
   laowang-subscription:
-    # upstream: ghcr.io/tony-wang1990/laowang-subscription:0f6daee@sha256:c843200dfe330f575c9195889d666f752397eccdd95c2d947945489d080dab8b
-    image: registry.lazycat.cloud/czyt/tony-wang1990/laowang-subscription:6c56c2c2ba491f5b
+    # upstream: ghcr.io/tony-wang1990/laowang-subscription:6f00e2b@sha256:af4d4cf03406311d81e40ff530beef078bbd623a9e6b50ba00d9219b0475af1a
+    image: registry.lazycat.cloud/czyt/tony-wang1990/laowang-subscription:22eee19996204a48
     binds:
       - /lzcapp/var/database:/app/database
     environment:
